@@ -1,0 +1,18 @@
+{% extends "home.html" %}
+
+{% block title %}Query Data{% endblock %}
+
+{% block content %}
+<h2>Query Data</h2>
+
+<!-- Form for querying data -->
+<form method="get" action="{% url 'query_data' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+</form>
+
+{% if count is not None %}
+    <p>Count of records matching filters: {{ count }}</p>
+{% endif %}
+{% endblock %}

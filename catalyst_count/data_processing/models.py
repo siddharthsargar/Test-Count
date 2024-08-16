@@ -1,8 +1,11 @@
 from django.db import models
 
 # Create your models here.
+
+
+
 class Company(models.Model):
-    id = models.BigIntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     domain = models.URLField(max_length=255, blank=True, null=True)
     year_founded = models.PositiveIntegerField(blank=True, null=True)
