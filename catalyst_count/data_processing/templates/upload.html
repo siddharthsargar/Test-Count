@@ -1,16 +1,17 @@
 {% extends "home.html" %}
 
-{% block title %}Upload Data{% endblock %}
+{% block title %}Query Data{% endblock %}
 
 {% block content %}
-<h2>Upload Data</h2>
+<h2>Query Data</h2>
 
-<!-- Form for uploading files -->
-<form method="post" enctype="multipart/form-data">
+<form method="get" action="{% url 'query_data' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <button type="submit" class="button">Search</button>
 </form>
 
-
+{% if count is not None %}
+    <p>Count of records matching filters: {{ count }}</p>
+{% endif %}
 {% endblock %}

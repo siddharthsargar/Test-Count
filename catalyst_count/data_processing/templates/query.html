@@ -9,10 +9,36 @@
 <form method="get" action="{% url 'query_data' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Search</button>
+    <button type="submit" class="button">Search</button>
+    <button type="reset" class="button reset">Reset</button>
 </form>
 
 {% if count is not None %}
     <p>Count of records matching filters: {{ count }}</p>
 {% endif %}
 {% endblock %}
+
+<style>
+    .button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: white;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        margin: 5px; /* Add some margin to separate buttons */
+    }
+    .button:hover {
+        background-color: #0056b3;
+    }
+    .reset {
+        background-color: #6c757d; /* Grey background for reset button */
+    }
+    .reset:hover {
+        background-color: #5a6268; /* Darker grey on hover */
+    }
+</style>
